@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Register</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <script>
+      function toggleGroupField() {
+        const roleSelect = document.getElementById("role");
+        const groupDiv = document.getElementById("group-field");
+        if (roleSelect.value === "User") {
+          groupDiv.style.display = "block";
+        } else {
+          groupDiv.style.display = "none";
+        }
+      }
+
+      window.onload = function () {
+        toggleGroupField();
+      };
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="login-card">
+        <h2>Register</h2>
+        <p class="form-subtext">Create a new account to access the dashboard</p>
+
+        {% with messages = get_flashed_messages() %} {% if messages %}
+        <ul class="flash">
+          {% for message in messages %}
+          <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %} {% endwith %}
+
+        <form method="POST">
+          <label for="username">Username</label>
+          <input type="text" name="username" id="username" required />
+
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password" required />
+
+          <label for="role">Role</label>
+          <select name="role" id="role" onchange="toggleGroupField()">
+            <option value="Admin">Admin</option>
+            <option value="User">User</option>
+          </select>
+
+          <div id="group-field">
+            <label for="group">Group</label>
+            <select name="group" id="group">
+              {% for g in groups %}
+              <option value="{{ g.get('id') }}">{{ g.get('name') }}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <button type="submit" class="btn">Register</button>
+        </form>
+
+        <p class="footer-text">
+          Already have an account? <a href="/login">Login here</a>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,220 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  background-color: #0b0b0c;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Main Container */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 30px;
+}
+
+/* Login Card */
+.login-card {
+  background: linear-gradient(to bottom right, #1b1c1f, #111214);
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 191, 255, 0.3);
+  color: #ffffff;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Headline */
+.login-card h2 {
+  text-align: center;
+  color: #00bfff;
+  margin-bottom: 30px;
+}
+
+/* Labels */
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #cccccc;
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  background-color: #1f1f22;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-color: #00bfff;
+  box-shadow: 0 0 8px #00bfff;
+  outline: none;
+}
+
+/* Submit Button */
+.btn {
+  width: 100%;
+  background-color: #00bfff;
+  color: #0b0b0c;
+  padding: 12px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0099cc;
+}
+
+/* Footer Text */
+.footer-text {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #888888;
+}
+
+.footer-text a {
+  color: #00bfff;
+  text-decoration: none;
+}
+
+.footer-text a:hover {
+  text-decoration: underline;
+}
+
+/* Flash Messages */
+.flash {
+  list-style: none;
+  padding: 10px;
+  background-color: #330000;
+  border: 1px solid #cc0000;
+  border-radius: 8px;
+  color: #ff6666;
+  margin-bottom: 15px;
+}
+
+select {
+  width: 100%;
+  padding: 12px 15px;
+  background-color: #1f1f22;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 14px;
+  margin-bottom: 20px;
+  transition: 0.3s ease;
+}
+
+select:focus {
+  border-color: #00bfff;
+  box-shadow: 0 0 8px #00bfff;
+  outline: none;
+}
+
+.form-subtext {
+  text-align: center;
+  font-size: 14px;
+  color: #888888;
+  margin-bottom: 25px;
+}
+
+/* Dashboard Header */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  width: 100%;
+  color: #eeee;
+  padding: 30px 20px;
+}
+
+.btn-logout {
+  background-color: #ff4d4d;
+  color: #fff;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.btn-logout:hover {
+  background-color: #cc0000;
+}
+
+/* Dashboard Subtext */
+.dashboard-subtext {
+  color: #888;
+  margin-bottom: 30px;
+  font-size: 15px;
+}
+
+/* Section Title */
+.section-title {
+  font-size: 20px;
+  color: #00bfff;
+  margin-bottom: 15px;
+}
+
+/* Sensor Cards */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 1.5rem;
+  gap: 20px;
+}
+
+.sensor-card {
+  background-color: #1b1c1f;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(0, 191, 255, 0.1);
+  color: #ffffff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sensor-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(0, 191, 255, 0.3);
+}
+
+.sensor-card h4 {
+  color: #00bfff;
+  margin-bottom: 10px;
+}
+
+.div-c {
+  width: 100%;
+  padding: 0 20px;
+}
+
+.div-f {
+  width: 100%;
+  padding: 0 20px;
+}

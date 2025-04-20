@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="dashboard-header">
+        <h2>Welcome, {{ username }}!</h2>
+        <a href="/logout" class="btn-logout">Logout</a>
+      </div>
+
+      <p class="dashboard-subtext">This is your dashboard.</p>
+
+      <h3 class="section-title">Latest Sensor Data</h3>
+      <div class="div-c">
+        <div id="sensor-container" class="card-container"></div>
+      </div>
+    </div>
+
+    <script>
+      async function fetchSensorData() {
+        try {
+          const res = await fetch("/sensor_data");
+          const data = await res.json();
+          const sensors = data.sensors || [];
+          const container = document.getElementById("sensor-container");
+
+          container.innerHTML = "";
+
+          sensors.forEach((sensor) => {
+            const card = document.createElement("div");
+            card.className = "sensor-card";
+            card.innerHTML = `
+              <h4>Sensor Name: ${sensor.name}</h4>
+              <p><strong>Value:</strong> ${sensor.value}</p>
+              <p><strong>Group ID:</strong> ${sensor.id}</p>
+              <p><strong>Created At:</strong> ${sensor.create_at}</p>
+            `;
+            container.appendChild(card);
+          });
+        } catch (err) {
+          console.error("Error fetching sensor data:", err);
+        }
+      }
+
+      fetchSensorData();
+      setInterval(fetchSensorData, 3000);
+    </script>
+  </body>
+</html>
